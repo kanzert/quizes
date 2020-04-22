@@ -33,11 +33,15 @@ export class QuizEditComponent implements OnInit {
   }
 
   save(): void {
+    console.log(this.question.options);
     this.questionService.updateQuestion(this.question)
       .subscribe(() => this.goBack());
   }
 
   add(correct: boolean, text: string): void {
+    if (this.question.options === undefined) {
+      this.question.options = [];
+    }
     this.question.options.push(this.optionService.add(correct, text));
   }
 }

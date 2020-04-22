@@ -27,7 +27,7 @@
         <input #optionText />
       </label>
       <!-- (click) passes input value to add() and then clears the input -->
-      <div *ngIf="question.options.length < 4">
+      <div *ngIf="question.options === undefined || question.options.length < 4">
         <button (click)="add(optionCorrect.defaultChecked, optionText.value); optionText.value=''">
           add
         </button>
