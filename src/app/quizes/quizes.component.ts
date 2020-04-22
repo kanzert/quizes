@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Question} from '../entities/question';
+import { QuestionType } from '../entities/question-type';
 import {QuestionService} from '../question.service';
 import {MessageService} from '../message.service';
 
@@ -10,6 +11,7 @@ import {MessageService} from '../message.service';
 })
 export class QuizesComponent implements OnInit {
   questions: Question[];
+  questionTypeName: string;
   // selectedQuestion: Question;
 
   constructor(private questionService: QuestionService, private messageService: MessageService) { }
@@ -27,10 +29,10 @@ export class QuizesComponent implements OnInit {
     this.questionService.getQuestions()
       .subscribe(questions => this.questions = questions);
   }
-  add(text: string): void {
+  add(text: string, typeName: string): void {
     text = text.trim();
     if (!text) { return; }
-    this.questionService.addQuestion({text} as Question)
+    this.questionService.addQuestion({text, type: {name: typeName}} as Question)
       .subscribe(question => {
         this.questions.push(question);
       });

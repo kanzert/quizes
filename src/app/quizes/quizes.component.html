@@ -12,8 +12,17 @@
     <input #questionTitle />
   </label>
 
+  <label>
+    Select type of question
+    <select #typeName>
+      <option value="Choose answer">Choose answer</option>
+      <option value="True/False">True/False</option>
+      <option value="Open answer">Open answer</option>
+    </select>
+  </label>
+  
   <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(questionTitle.value); questionTitle.value=''">
+  <button (click)="add(questionTitle.value, typeName.value); questionTitle.value=''">
     add
   </button>
 </div>
