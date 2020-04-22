@@ -3,7 +3,8 @@ import { Location } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Question} from '../entities/question';
-import { QuestionService} from '../question.service';
+import { QuestionService } from '../question.service';
+import { OptionService } from '../option.service';
 
 @Component({
   selector: 'app-quiz-edit',
@@ -15,6 +16,7 @@ export class QuizEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private questionService: QuestionService,
+    private optionService: OptionService,
     private location: Location
   ) { }
 
@@ -33,5 +35,9 @@ export class QuizEditComponent implements OnInit {
   save(): void {
     this.questionService.updateQuestion(this.question)
       .subscribe(() => this.goBack());
+  }
+
+  add(correct: boolean, text: string): void {
+    this.question.options.push(this.optionService.add(correct, text));
   }
 }

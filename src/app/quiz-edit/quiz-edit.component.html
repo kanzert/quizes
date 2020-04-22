@@ -12,14 +12,26 @@
   </div>
   <div>
     <span>Options:</span>
-    <ul class="options">
+    <ol class="options">
       <li *ngFor="let option of question.options">
-        <span class="badge">{{option.id}}</span> {{option.text}}
-        <label for="text">text:
-          <input [(ngModel)]="option.text" id="option" placeholder="option"/>
-        </label>
+        <span class="badge">{{option.text}}</span>
+
+        <!--<label for="text">text:-->
+          <!--<input [(ngModel)]="option.text" id="option" placeholder="option"/>-->
+        <!--</label>-->
       </li>
-    </ul>
+    </ol>
+    <div>
+      <label>Option:
+        <input type="checkbox" id="correct" #optionCorrect/>
+        <input #optionText />
+      </label>
+      <!-- (click) passes input value to add() and then clears the input -->
+      <button (click)="add(optionCorrect.defaultChecked, optionText.value); optionText.value=''">
+        add
+      </button>
+    </div>
+
   </div>
   <button (click)="goBack()">go back</button>
   <button (click)="save()">save</button>
