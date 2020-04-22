@@ -1,0 +1,27 @@
+<p>details</p>
+<div *ngIf="question">
+  <h2>{{question.text | uppercase}} Details</h2>
+  <div><span>id: </span>{{question.id}}</div>
+  <div>
+    <span>Question type:{{question.type.name}}</span>
+  </div>
+  <div>
+    <label for="text">text:
+      <input [(ngModel)]="question.text" id="text" placeholder="text"/>
+    </label>
+  </div>
+  <div>
+    <span>Options:</span>
+    <ul class="options">
+      <li *ngFor="let option of question.options">
+        <span class="badge">{{option.id}}</span> {{option.text}}
+        <label for="text">text:
+          <input [(ngModel)]="option.text" id="option" placeholder="option"/>
+        </label>
+      </li>
+    </ul>
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>
+

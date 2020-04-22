@@ -1,0 +1,20 @@
+<h2>My Questions</h2>
+<ul class="questions">
+  <li *ngFor="let question of questions">
+    <a routerLink="/quiz-edit/{{question.id}}">
+      <span class="badge">{{question.id}}</span> {{question.text}}
+    </a>
+  </li>
+</ul>
+
+<div>
+  <label>Question title:
+    <input #questionTitle />
+  </label>
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(questionTitle.value); questionTitle.value=''">
+    add
+  </button>
+</div>
+<app-quiz-edit></app-quiz-edit>
