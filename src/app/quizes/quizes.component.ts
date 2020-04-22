@@ -42,4 +42,8 @@ export class QuizesComponent implements OnInit {
   //   this.questions = this.questionService.getQuestions();
   // }
 
+  delete(question: Question): void {
+    this.questions = this.questions.filter(q => q !== question);
+    this.questionService.deleteQuestion(question).subscribe();
+  }
 }

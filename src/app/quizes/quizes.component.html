@@ -4,7 +4,11 @@
     <a routerLink="/quiz-edit/{{question.id}}">
       <span class="badge">{{question.id}}</span> {{question.text}}
     </a>
+    <button class="delete" title="delete question"
+            (click)="delete(question)">x</button>
   </li>
+
+
 </ul>
 
 <div>
