@@ -16,19 +16,25 @@
       <li *ngFor="let option of question.options">
         <span class="badge">{{option.text}}</span>
 
+        <span class="badge" *ngIf="option.correct === true">✅</span>
+
+        <button class="delete" title="delete option"
+                (click)="delete(option)">x</button>
+
         <!--<label for="text">text:-->
           <!--<input [(ngModel)]="option.text" id="option" placeholder="option"/>-->
         <!--</label>-->
       </li>
     </ol>
-    <div>
+
+    <div *ngIf="question.options === undefined || question.options.length < 4">
       <label>Option:
-        <input type="checkbox" id="correct" #optionCorrect/>
+        <span>Correct: <input type="checkbox" id="correct" #optionCorrect/></span>
         <input #optionText />
       </label>
       <!-- (click) passes input value to add() and then clears the input -->
-      <div *ngIf="question.options === undefined || question.options.length < 4">
-        <button (click)="add(optionCorrect.defaultChecked, optionText.value); optionText.value=''">
+      <div>
+        <button (click)="add(optionCorrect.checked, optionText.value); optionText.value=''">
           add
         </button>
       </div>

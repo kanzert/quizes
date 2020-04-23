@@ -18,17 +18,17 @@
 
   <label>
     Select type of question
-    <select #typeName>
+    <select #typeName >
       <option value="Select option">Select option</option>
       <option value="True/False">True/False</option>
       <option value="Type answer">Type answer</option>
       <option value="Select sequence">Select sequence</option>
     </select>
   </label>
-  
-  <!-- (click) passes input value to add() and then clears the input -->
   <button (click)="add(questionTitle.value, typeName.value); questionTitle.value=''">
-    add
+      add
   </button>
+
+
 </div>
 <app-quiz-edit></app-quiz-edit>

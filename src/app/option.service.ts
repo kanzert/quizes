@@ -13,7 +13,7 @@ export class OptionService {
 
   add(correct: boolean, text: string): Option {
     this.option.id = 1;
-    this.option.correct = true;
+    this.option.correct = correct;
     this.option.text = text;
     return this.option;
   }
