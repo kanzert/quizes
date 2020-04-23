@@ -6,4 +6,5 @@ export interface Question {
   text: string;
   options: Option[];
   type: QuestionType;
+  quizId: number;
 }
