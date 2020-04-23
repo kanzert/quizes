@@ -10,26 +10,23 @@ export class OptionService {
     id: number;
     text: string;
   };
-
-  add(correct: boolean, text: string, options: Option[]): Option {
-    if (options === undefined) {
-      options = [];
-    }
+  add(correct: boolean, text: string, options: Option[]) {
     this.option.correct = correct;
     this.option.text = text;
     options.push(this.option);
-    return this.option;
   }
-  // updateOption(options: Option[], option: Option): void {
-  //
-  // }
+  updateOption(correct: boolean, text: string, options: Option[], option: Option) {
+    const index = options.indexOf(option, 0);
+    if (index > -1) {
+      options[index].correct = correct;
+      options[index].text = text;
+    }
+  }
   deleteOption(options: Option[], option: Option): void {
     const index = options.indexOf(option, 0);
     if (index > -1) {
       options.splice(index, 1);
     }
   }
-
-
 }
 

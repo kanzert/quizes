@@ -40,17 +40,17 @@ export class QuizEditComponent implements OnInit {
   }
 
   add(correct: boolean, text: string): void {
+    if (this.question.options === undefined) {
+      this.question.options = [];
+    }
     this.optionService.add(correct, text, this.question.options);
   }
 
-  // update(correct: boolean, text: string): void {
-  //
-  //   this.optionService.updateOption(this.question.options, option);
-  // }
+  update(correct: boolean, text: string, option: Option): void {
+     this.optionService.updateOption(correct, text, this.question.options, option);
+  }
 
   delete(option: Option): void {
     this.optionService.deleteOption(this.question.options, option);
   }
-
-
 }

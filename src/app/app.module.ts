@@ -11,6 +11,7 @@ import { QuizesComponent } from './quizes/quizes.component';
 import { QuizEditComponent } from './quiz-edit/quiz-edit.component';
 import { MessagesComponent } from './messages/messages.component';
 import { QuizDashboardComponent } from './quiz-dashboard/quiz-dashboard.component';
+import { QuizCreateComponent } from './quiz-create/quiz-create.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { QuizDashboardComponent } from './quiz-dashboard/quiz-dashboard.componen
     QuizesComponent,
     QuizEditComponent,
     MessagesComponent,
-    QuizDashboardComponent
+    QuizDashboardComponent,
+    QuizCreateComponent
   ],
   imports: [
     BrowserModule,
