@@ -22,6 +22,9 @@ export class QuizCreateComponent implements OnInit {
   }
 
   add(title: string): void {
+    if (this.quizes === undefined) {
+      this.quizes = [];
+    }
     title = title.trim();
     if (!title) { return; }
     this.quizService.addQuiz({ title } as Quiz)

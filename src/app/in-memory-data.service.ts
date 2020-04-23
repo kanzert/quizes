@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Question} from './entities/question';
+import {Quiz} from './entities/quiz';
 
 @Injectable({
   providedIn: 'root',
@@ -42,7 +43,12 @@ export class InMemoryDataService implements InMemoryDbService {
           name: 'True/False'
         }},
     ];
-    return {questions};
+    const quizes: Quiz[] = [
+      { id: 11, title: 'Java', user_id: 15},
+      { id: 12, title: 'Angular', user_id: 16},
+      { id: 13, title: 'Sql', user_id: 17},
+    ];
+    return {questions, quizes};
   }
 
   // Overrides the genId method to ensure that a hero always has an id.
