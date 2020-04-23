@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Question } from '../entities/question';
-import { QuestionService } from '../question.service';
+import { Quiz } from '../entities/quiz';
+import { QuizService } from '../quiz.service';
 
 @Component({
   selector: 'app-quiz-dashboard',
@@ -8,16 +8,16 @@ import { QuestionService } from '../question.service';
   styleUrls: ['./quiz-dashboard.component.css']
 })
 export class QuizDashboardComponent implements OnInit {
-  questions: Question[] = [];
+  quizes: Quiz[] = [];
 
-  constructor(private questionService: QuestionService) { }
+  constructor(private quizService: QuizService) { }
 
   ngOnInit(): void {
-    this.getQuestions();
+    this.getQuizes();
   }
 
-  getQuestions(): void {
-    this.questionService.getQuestions()
-      .subscribe(questions => this.questions = questions);
+  getQuizes(): void {
+    this.quizService.getQuizes()
+      .subscribe(quizes => this.quizes = quizes);
   }
 }

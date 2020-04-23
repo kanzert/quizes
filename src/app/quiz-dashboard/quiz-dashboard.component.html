@@ -1,9 +1,9 @@
-<h3>Top Questions</h3>
+<h3>Top Quizes</h3>
 <div class="grid grid-pad">
-  <a *ngFor="let question of questions" class="col-1-4"
-    routerLink="/quiz-edit/{{question.id}}">
+  <a *ngFor="let quiz of quizes" class="col-1-4"
+    routerLink="/quiz-edit/{{quiz.id}}">
     <div class="module hero">
-      <h4>{{question.text}}</h4>
+      <h4>{{quiz.title}}</h4>
     </div>
   </a>
 </div>
