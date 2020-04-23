@@ -64,8 +64,8 @@ export class QuestionService {
   // }
   updateQuestion(question: Question): Observable<any>  {
     return this.http.put(this.questionsUrl, question, this.httpOptions).pipe(
-      tap(_ => this.log(`updated hero id=${question.id}`)),
-      catchError(this.handleError<any>('updateHero'))
+      tap(_ => this.log(`updated question id=${question.id}`)),
+      catchError(this.handleError<any>('updateQuestion'))
     );
   }
 
